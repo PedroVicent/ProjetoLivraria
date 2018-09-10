@@ -1,0 +1,35 @@
+﻿@model ProjetoLivraria.Models.Livro
+
+@{
+    ViewData["Title"] = "DetalhesDoLivro";
+}
+
+<h2>Detalhes DoLivro</h2>
+
+<div>
+    <h4>Livro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Situacao)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Livros">Voltar a Lista</a>
+</div>

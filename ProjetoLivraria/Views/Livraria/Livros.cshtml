@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProjetoLivraria.Models.Livro>
+
+@{
+    ViewData["Title"] = "Livros";
+}
+
+<h2>Livros</h2>
+
+<p>
+    <a asp-action="CadastroDeLivros">Cadastrar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Situacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Situacao)
+                </td>
+                <td>
+                    <a asp-action="EditarLivro" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="DetalhesDoLivro" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="DeletarLivro" asp-route-id="@item.Id">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

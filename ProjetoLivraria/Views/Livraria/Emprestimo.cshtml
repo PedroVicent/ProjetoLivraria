@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjetoLivraria.Models.Emprestimo>
+
+@{
+    ViewData["Title"] = "Emprestimo";
+}
+
+<h2>Emprestimo</h2>
+
+<p>
+    <a asp-action="CadastrarEmprestimo">Cadastrar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Livro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pessoa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Livro.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pessoa.Id)
+            </td>
+            <td>
+                <a asp-action="DeletarEmprestimo" asp-route-id="@item.Id">Apagar Emprestimo</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
